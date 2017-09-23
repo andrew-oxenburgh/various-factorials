@@ -1,0 +1,25 @@
+{
+  "name": "various-factorials",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test",
+    "lint": "eslint ./test/ ./index.js --fix",
+    "qa": "npm run lint && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrew-oxenburgh/various-factorials.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrew-oxenburgh/various-factorials/issues"
+  },
+  "homepage": "https://github.com/andrew-oxenburgh/various-factorials#readme",
+  "devDependencies": {
+    "eslint": "^4.7.2",
+    "mocha": "^3.5.3"
+  }
+}
