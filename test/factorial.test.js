@@ -13,7 +13,7 @@ describe('Factorial', function () {
         });
     });
     describe('should return undefined on error', function () {
-        it('factorial -1', function () {
+        it('factorials only on positive numbers', function () {
             checkFactorial(-1, undefined);
         });
         it('factorial doesnt work on fractions', function () {
@@ -31,8 +31,14 @@ describe('Factorial', function () {
         it('factorial empty string', function () {
             checkFactorial('', undefined);
         });
+        it('factorial empty string', function () {
+            checkFactorial('', undefined);
+        });
+        it('factorial on non-number strings string', function () {
+            checkFactorial('asdf', undefined);
+        });
     });
-    describe('good cases', function () {
+    describe('good cases - positive integers greater than or equal to zero', function () {
         it('factorial 0 should be 1', function () {
             checkFactorial(1, 1);
         });

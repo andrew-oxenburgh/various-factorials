@@ -1,7 +1,8 @@
 /*global exports */
 
-let notValid = (number) => ((typeof number !== 'number' && typeof number !== 'string')
-    || number === null
+let notValid = (number) => (
+    (typeof number !== 'number' && typeof number !== 'string')
+    || isNaN(number)
     || number < 0
     || (number.trim && number.trim() === '')
     || (typeof number === 'number' && !Number.isInteger(number))
