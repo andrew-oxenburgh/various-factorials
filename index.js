@@ -1,6 +1,6 @@
 /*global exports */
 
-let notValid = (number) => (typeof number === 'undefined'
+let notValid = (number) => ((typeof number !== 'number' && typeof number !== 'string')
     || number === null
     || number < 0
     || (number.trim && number.trim() === '')
@@ -21,4 +21,3 @@ exports.factorial = function factorial(number) {
     }
     return sum;
 };
-
