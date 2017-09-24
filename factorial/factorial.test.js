@@ -22,8 +22,8 @@ const conditions = [
     [10, 3628800],
 ];
 
-let checkFactorial = function (fn, input, expected) {
-    const factorial = require('../index.js')[fn];
+const checkFactorial = function (fn, input, expected) {
+    const factorial = require('../factorial/factorial.js')[fn];
     assert.equal(factorial(input), expected);
 };
 
