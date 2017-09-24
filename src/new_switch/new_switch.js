@@ -1,5 +1,8 @@
 /*global module */
 
+/**
+ * A simple switch statement. The old fashioned way, with breaks and cases and everything.
+ */
 function switch_statement(state = 0, action) {
     switch (action.type) {
     case 'INCREMENT':
@@ -28,9 +31,18 @@ const if_statement = (defaultCase, type) => {
     }
 };
 
+const switchcase = cases => defaultCase => key =>
+    key in cases ? cases[key] : defaultCase;
+
+const ternary = (state = 0, action) =>
+    switchcase({
+        'INCREMENT': state + 1,
+        'DECREMENT': state -1
+    })(state)(action.type);
 
 module.exports ={
     switch_statement: switch_statement,
     nested_ternary: nested_ternary,
-    if_statement: if_statement
+    if_statement: if_statement,
+    ternary: ternary
 };
