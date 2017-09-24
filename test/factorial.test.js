@@ -1,15 +1,16 @@
 /*global require describe*/
 const assert = require('assert');
-const factorial = require('../index.js')['factorial_loop'];
 const forEach = require('mocha-each');
 
 
-let checkFactorial = function (input, expected) {
+let checkFactorial = function (fn, input, expected) {
+    const factorial = require('../index.js')[fn];
     assert.equal(factorial(input), expected);
 };
 
 describe('factorial', () => {
-    forEach([
+
+    const conditions = [
         [-1, undefined],
         [1.1, undefined],
         [[], undefined],
@@ -25,8 +26,24 @@ describe('factorial', () => {
         [2, 2],
         [3, 6],
         [10, 3628800],
-    ])
-        .it('%s returns %s', (input, expected) => {
-            checkFactorial(input, expected);
+    ];
+
+    const functions = ['factorial_loop'];
+
+    let full_test = [];
+
+    for (let fn in functions) {
+        for (let cond in conditions) {
+            let this_test = [];
+            this_test.push(functions[fn]);
+            this_test.push(conditions[cond][0]);
+            this_test.push(conditions[cond][1]);
+            full_test.push(this_test);
+        }
+    }
+
+    forEach(full_test)
+        .it('%s returns %s', (fn, input, expected) => {
+            checkFactorial(fn, input, expected);
         });
 });
