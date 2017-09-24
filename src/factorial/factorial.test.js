@@ -23,7 +23,7 @@ const conditions = [
 ];
 
 const checkFactorial = function (fn, input, expected) {
-    const factorial = require('../factorial/factorial.js')[fn];
+    const factorial = require('./factorial.js')[fn];
     assert.equal(factorial(input), expected);
 };
 

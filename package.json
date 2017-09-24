@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha factorial",
-    "lint": "eslint ./factorial/ --fix",
+    "test": "mocha src/**/*.test.js",
+    "lint": "eslint ./src/ --fix",
     "qa": "npm run lint && npm test && npm run doc",
-    "doc": "jsdoc2md ./factorial/factorial.js > JSDOC.md"
+    "doc": "jsdoc2md ./src/factorial/factorial.js > JSDOC.md"
   },
   "repository": {
     "type": "git",
