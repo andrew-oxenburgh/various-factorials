@@ -8,7 +8,7 @@ let notValid = (number) => (
     || (typeof number === 'number' && !Number.isInteger(number))
 );
 
-exports.factorial = function factorial(number) {
+exports.factorial_loop = function factorial(number) {
     if (notValid(number)) {
         return undefined;
     }

@@ -1,61 +1,32 @@
-/*global require describe it */
-let assert = require('assert');
-let factorial = require('../index.js').factorial;
+/*global require describe*/
+const assert = require('assert');
+const factorial = require('../index.js')['factorial_loop'];
+const forEach = require('mocha-each');
+
 
 let checkFactorial = function (input, expected) {
     assert.equal(factorial(input), expected);
 };
 
-describe('Factorial', function () {
-    describe('should accept string reps of numbers', function () {
-        it('factorial 0 should be 1', function () {
-            checkFactorial('1', 1);
+describe('factorial', () => {
+    forEach([
+        [-1, undefined],
+        [1.1, undefined],
+        [[], undefined],
+        [{}, undefined],
+        ['', undefined],
+        [' ', undefined],
+        ['asdb', undefined],
+        [undefined, undefined],
+        [null, undefined],
+        ['0', 1],
+        [0, 1],
+        [1, 1],
+        [2, 2],
+        [3, 6],
+        [10, 3628800],
+    ])
+        .it('%s returns %s', (input, expected) => {
+            checkFactorial(input, expected);
         });
-    });
-    describe('should return undefined on error', function () {
-        it('factorials only on positive numbers', function () {
-            checkFactorial(-1, undefined);
-        });
-        it('factorial doesnt work on fractions', function () {
-            checkFactorial(1.1, undefined);
-        });
-        it('factorial doesnt work on arrays', function () {
-            checkFactorial([], undefined);
-        });
-        it('factorial undefined', function () {
-            checkFactorial(undefined, undefined);
-        });
-        it('factorial null', function () {
-            checkFactorial(null, undefined);
-        });
-        it('factorial empty string', function () {
-            checkFactorial('', undefined);
-        });
-        it('factorial empty string', function () {
-            checkFactorial('', undefined);
-        });
-        it('factorial on non-number strings string', function () {
-            checkFactorial('asdf', undefined);
-        });
-    });
-    describe('good cases - positive integers greater than or equal to zero', function () {
-        it('factorial 0 should be 1', function () {
-            checkFactorial(1, 1);
-        });
-        it('factorial 1 should be 1', function () {
-            checkFactorial(1, 1);
-        });
-        it('factorial 2 should be 2', function () {
-            checkFactorial(2, 2);
-        });
-        it('factorial 3 should be 6', function () {
-            checkFactorial(3, 6);
-        });
-        it('factorial "3" should be 6', function () {
-            checkFactorial('3', 6);
-        });
-        it('factorial 10 should be 36282800', function () {
-            checkFactorial('3', 6);
-        });
-    });
 });

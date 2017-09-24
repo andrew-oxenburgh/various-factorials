@@ -20,6 +20,7 @@
   "homepage": "https://github.com/andrew-oxenburgh/various-factorials#readme",
   "devDependencies": {
     "eslint": "^4.7.2",
-    "mocha": "^3.5.3"
+    "mocha": "^3.5.3",
+    "mocha-each": "^1.1.0"
   }
 }
