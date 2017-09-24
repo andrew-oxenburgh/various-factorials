@@ -28,7 +28,7 @@ describe('factorial', () => {
         [10, 3628800],
     ];
 
-    const functions = ['factorial_loop'];
+    const functions = ['loop', 'tail_end_recurse'];
 
     let full_test = [];
 

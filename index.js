@@ -8,7 +8,7 @@ let notValid = (number) => (
     || (typeof number === 'number' && !Number.isInteger(number))
 );
 
-exports.factorial_loop = function(number) {
+exports.loop = function (number) {
     if (notValid(number)) {
         return undefined;
     }
@@ -23,17 +23,13 @@ exports.factorial_loop = function(number) {
     return sum;
 };
 
-exports.another_factorial_loop = function(number) {
+exports.tail_end_recurse = function recurse(number, prod=1) {
     if (notValid(number)) {
         return undefined;
     }
-    if (number == 0) {
-        return 1;
+    if (number == 0 || number === 1) {
+        return prod;
     }
 
-    let sum = 1;
-    for (let i = 1; i <= number; i++) {
-        sum *= i;
-    }
-    return sum;
+    return recurse(number - 1, prod * number);
 };
