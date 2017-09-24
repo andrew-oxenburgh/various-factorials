@@ -2,7 +2,7 @@
 const assert = require('assert');
 const forEach = require('mocha-each');
 
-const functions = ['classic', 'nested_ternary'];
+const functions = ['switch_statement', 'nested_ternary', 'if_statement'];
 
 const conditions = [
     [-100, {type:'INCREMENT'}, -99],
