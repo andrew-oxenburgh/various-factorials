@@ -2,6 +2,25 @@
 const assert = require('assert');
 const forEach = require('mocha-each');
 
+const functions = ['loop', 'tail_end_recursion'];
+
+const conditions = [
+    [-1, undefined],
+    [1.1, undefined],
+    [[], undefined],
+    [{}, undefined],
+    ['', undefined],
+    [' ', undefined],
+    ['asdb', undefined],
+    [undefined, undefined],
+    [null, undefined],
+    ['0', 1],
+    [0, 1],
+    [1, 1],
+    [2, 2],
+    [3, 6],
+    [10, 3628800],
+];
 
 let checkFactorial = function (fn, input, expected) {
     const factorial = require('../index.js')[fn];
@@ -9,26 +28,6 @@ let checkFactorial = function (fn, input, expected) {
 };
 
 describe('factorial', () => {
-
-    const conditions = [
-        [-1, undefined],
-        [1.1, undefined],
-        [[], undefined],
-        [{}, undefined],
-        ['', undefined],
-        [' ', undefined],
-        ['asdb', undefined],
-        [undefined, undefined],
-        [null, undefined],
-        ['0', 1],
-        [0, 1],
-        [1, 1],
-        [2, 2],
-        [3, 6],
-        [10, 3628800],
-    ];
-
-    const functions = ['loop', 'tail_end_recurse'];
 
     let full_test = [];
 
@@ -43,7 +42,7 @@ describe('factorial', () => {
     }
 
     forEach(full_test)
-        .it('%s returns %s', (fn, input, expected) => {
+        .it('"%s": %s returns %s', (fn, input, expected) => {
             checkFactorial(fn, input, expected);
         });
 });

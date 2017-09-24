@@ -23,7 +23,7 @@ exports.loop = function (number) {
     return sum;
 };
 
-exports.tail_end_recurse = function recurse(number, prod=1) {
+exports.tail_end_recursion = function recurse(number, prod=1) {
     if (notValid(number)) {
         return undefined;
     }
