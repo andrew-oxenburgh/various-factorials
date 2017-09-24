@@ -1,4 +1,4 @@
-/*global exports */
+/*global module */
 
 let notValid = (number) => (
     (typeof number !== 'number' && typeof number !== 'string')
@@ -8,7 +8,10 @@ let notValid = (number) => (
     || (typeof number === 'number' && !Number.isInteger(number))
 );
 
-exports.loop = function (number) {
+/**
+ * A simple for each loop, iterating through the sequence
+ */
+function loop(number) {
     if (notValid(number)) {
         return undefined;
     }
@@ -21,24 +24,36 @@ exports.loop = function (number) {
         sum *= i;
     }
     return sum;
-};
+}
 
-exports.tail_end_recursion = function recurse(number, prod=1) {
+/**
+ *  Tail end recursion. A pure return statement means there is no stack required, and can be optimised away.
+ */
+function tail_end_recursion(number, prod = 1) {
     if (notValid(number)) {
         return undefined;
     }
     if (number == 0 || number === 1) {
         return prod;
     }
-    return recurse(number - 1, prod * number);
-};
+    return tail_end_recursion(number - 1, prod * number);
+}
 
-exports.non_tail_end_recursion = function recurse(number) {
+/**
+ *  Recursion, but not tail end recursion. A stack is required to maintain the previous value.
+ */
+function non_tail_end_recursion(number) {
     if (notValid(number)) {
         return undefined;
     }
     if (number == 0 || number === 1) {
         return 1;
     }
-    return number * recurse(number - 1);
+    return number * non_tail_end_recursion(number - 1);
+}
+
+module.exports ={
+    non_tail_end_recursion:non_tail_end_recursion,
+    tail_end_recursion:tail_end_recursion,
+    loop: loop
 };

@@ -28,15 +28,12 @@ let checkFactorial = function (fn, input, expected) {
 };
 
 describe('factorial', () => {
-
     let full_test = [];
-
     functions.forEach((fn) => {
         conditions.forEach((cond) => {
             full_test.push([fn, ...cond]);
         });
     });
-
     forEach(full_test)
         .it('"%s": %s returns %s', (fn, input, expected) => {
             checkFactorial(fn, input, expected);

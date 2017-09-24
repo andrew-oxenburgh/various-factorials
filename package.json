@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha test",
     "lint": "eslint ./test/ ./index.js --fix",
-    "qa": "npm run lint && npm test"
+    "qa": "npm run lint && npm test && npm run doc",
+    "doc": "jsdoc2md ./index.js > JSDOC.md"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/andrew-oxenburgh/various-factorials#readme",
   "devDependencies": {
     "eslint": "^4.7.2",
+    "jsdoc-to-markdown": "^3.0.0",
     "mocha": "^3.5.3",
     "mocha-each": "^1.1.0"
   }
