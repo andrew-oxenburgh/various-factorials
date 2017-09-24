@@ -34,9 +34,7 @@ describe('factorial', () => {
     for (let fn in functions) {
         for (let cond in conditions) {
             let this_test = [];
-            this_test.push(functions[fn]);
-            this_test.push(conditions[cond][0]);
-            this_test.push(conditions[cond][1]);
+            this_test.push(functions[fn], ...conditions[cond]);
             full_test.push(this_test);
         }
     }
