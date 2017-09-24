@@ -31,13 +31,11 @@ describe('factorial', () => {
 
     let full_test = [];
 
-    for (let fn in functions) {
-        for (let cond in conditions) {
-            let this_test = [];
-            this_test.push(functions[fn], ...conditions[cond]);
-            full_test.push(this_test);
-        }
-    }
+    functions.forEach((fn) => {
+        conditions.forEach((cond) => {
+            full_test.push([fn, ...cond]);
+        });
+    });
 
     forEach(full_test)
         .it('"%s": %s returns %s', (fn, input, expected) => {
