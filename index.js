@@ -30,6 +30,15 @@ exports.tail_end_recursion = function recurse(number, prod=1) {
     if (number == 0 || number === 1) {
         return prod;
     }
-
     return recurse(number - 1, prod * number);
+};
+
+exports.non_tail_end_recursion = function recurse(number) {
+    if (notValid(number)) {
+        return undefined;
+    }
+    if (number == 0 || number === 1) {
+        return 1;
+    }
+    return number * recurse(number - 1);
 };

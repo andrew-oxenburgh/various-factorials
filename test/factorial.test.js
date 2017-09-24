@@ -2,7 +2,7 @@
 const assert = require('assert');
 const forEach = require('mocha-each');
 
-const functions = ['loop', 'tail_end_recursion'];
+const functions = ['loop', 'tail_end_recursion', 'non_tail_end_recursion'];
 
 const conditions = [
     [-1, undefined],
